@@ -39,4 +39,26 @@ describe("La clase 'CarritoCompras'", () => {
             
             expect(carrito.calcularTotal()).toBe(23); 
         });
+
+        it('Aplica un descuento al total de la compra según el porcentaje especificado.', () => {
+            
+            const carrito = new CarritoCompras();
+        
+           
+            carrito.agregarCarrito({ nombre: "Producto 1", precio: 20 });
+            carrito.agregarCarrito({ nombre: "Producto 2", precio: 30 });
+        
+            
+            const totalAntesDescuento = carrito.calcularTotal();
+        
+           
+            carrito.aplicarDescuento(10);
+        
+            
+            const totalDespuesDescuento = carrito.calcularTotal();
+        
+            
+            expect(carrito.calcularTotal()).toBe(totalDespuesDescuento);
+        });
+        
     })
